@@ -2,101 +2,111 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xys.accessibilitydemo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:label="@string/app_name">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <data android:scheme="growing.d7cc6720369f5b45" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
         </activity>
 
 
         <service
-        android:name=".A"
-        android:label="@string/demo"
-        android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
-        <intent-filter>
-        <action android:name="android.accessibilityservice.AccessibilityService" />
-        </intent-filter>
+            android:name=".A"
+            android:label="@string/demo"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
 
-        <meta-data
-        android:name="android.accessibilityservice"
-        android:resource="@xml/accessibility" />
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility" />
         </service>
 
         <!--<service-->
-            <!--android:name=".SearchHackAccessibilityService"-->
-            <!--android:label="@string/demo"-->
-            <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
-            <!--</intent-filter>-->
+        <!--android:name=".SearchHackAccessibilityService"-->
+        <!--android:label="@string/demo"-->
+        <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
+        <!--</intent-filter>-->
 
-            <!--<meta-data-->
-                <!--android:name="android.accessibilityservice"-->
-                <!--android:resource="@xml/accessibility" />-->
+        <!--<meta-data-->
+        <!--android:name="android.accessibilityservice"-->
+        <!--android:resource="@xml/accessibility" />-->
         <!--</service>-->
 
         <!--<service-->
-            <!--android:name=".CleanBackgroundProcessAccessibilityService"-->
-            <!--android:label="@string/clean"-->
-            <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
-            <!--</intent-filter>-->
+        <!--android:name=".CleanBackgroundProcessAccessibilityService"-->
+        <!--android:label="@string/clean"-->
+        <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
+        <!--</intent-filter>-->
 
-            <!--<meta-data-->
-                <!--android:name="android.accessibilityservice"-->
-                <!--android:resource="@xml/clean" />-->
+        <!--<meta-data-->
+        <!--android:name="android.accessibilityservice"-->
+        <!--android:resource="@xml/clean" />-->
         <!--</service>-->
 
         <!--<service-->
-            <!--android:name=".AutoReplyAccessibilityService"-->
-            <!--android:label="@string/reply"-->
+        <!--android:name=".AutoReplyAccessibilityService"-->
+        <!--android:label="@string/reply"-->
 
-            <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
-            <!--</intent-filter>-->
+        <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
+        <!--</intent-filter>-->
 
-            <!--<meta-data-->
-                <!--android:name="android.accessibilityservice"-->
-                <!--android:resource="@xml/reply" />-->
+        <!--<meta-data-->
+        <!--android:name="android.accessibilityservice"-->
+        <!--android:resource="@xml/reply" />-->
         <!--</service>-->
 
         <!--<service-->
-            <!--android:name=".AutoInstallAccessibilityService"-->
-            <!--android:label="@string/install"-->
+        <!--android:name=".AutoInstallAccessibilityService"-->
+        <!--android:label="@string/install"-->
 
-            <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
-            <!--</intent-filter>-->
+        <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
+        <!--</intent-filter>-->
 
-            <!--<meta-data-->
-                <!--android:name="android.accessibilityservice"-->
-                <!--android:resource="@xml/install" />-->
+        <!--<meta-data-->
+        <!--android:name="android.accessibilityservice"-->
+        <!--android:resource="@xml/install" />-->
         <!--</service>-->
 
         <!--<service-->
-            <!--android:name=".SelfDefenseAccessibilityService"-->
-            <!--android:label="@string/defense"-->
+        <!--android:name=".SelfDefenseAccessibilityService"-->
+        <!--android:label="@string/defense"-->
 
-            <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
-            <!--</intent-filter>-->
+        <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
+        <!--</intent-filter>-->
 
-            <!--<meta-data-->
-                <!--android:name="android.accessibilityservice"-->
-                <!--android:resource="@xml/defense" />-->
+        <!--<meta-data-->
+        <!--android:name="android.accessibilityservice"-->
+        <!--android:resource="@xml/defense" />-->
         <!--</service>-->
 
     </application>

@@ -1,19 +1,19 @@
 package com.xys.accessibilitydemo;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.xys.accessibilitydemo.utils.BaseAccessibilityService;
 
 import java.io.File;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private PackageManager mPackageManager;
     private String[] mPackages;

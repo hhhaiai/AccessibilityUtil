@@ -21,21 +21,7 @@ public class A extends BaseAccessibilityService {
     public void onAccessibilityEvent(AccessibilityEvent event) {
         super.onAccessibilityEvent(event);
 
-        StringBuilder sb = new StringBuilder();
-        sb
-                .append("======================================================").append("\n")
-                .append("action:").append(event.getAction()).append("\n")
-                .append("ContentChangeTypes:").append(event.getContentChangeTypes()).append("\n")
-                .append("getEventTime:").append(event.getEventTime()).append("\n")
-                .append("getMovementGranularity:").append(event.getMovementGranularity()).append("\n")
-                .append("getPackageName:").append(event.getPackageName()).append("\n")
-                .append("getClassName:").append(event.getClassName()).append("\n")
-                .append("getSource:").append(event.getSource()).append("\n")
-                .append("getRecordCount:").append(event.getRecordCount()).append("\n")
-                .append("======================================================").append("\n")
 
-        ;
-        L.v(sb.toString());
 
         String eventText = null;
         switch (event.getEventType()) {
@@ -56,6 +42,22 @@ public class A extends BaseAccessibilityService {
                 break;
             case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
                 L.i("页面跳转");
+
+                StringBuilder sb = new StringBuilder();
+                sb
+                        .append("======================================================").append("\n")
+                        .append("action:").append(event.getAction()).append("\n")
+                        .append("ContentChangeTypes:").append(event.getContentChangeTypes()).append("\n")
+                        .append("getEventTime:").append(event.getEventTime()).append("\n")
+                        .append("getMovementGranularity:").append(event.getMovementGranularity()).append("\n")
+                        .append("getPackageName:").append(event.getPackageName()).append("\n")
+                        .append("getClassName:").append(event.getClassName()).append("\n")
+                        .append("getSource:").append(event.getSource()).append("\n")
+                        .append("getRecordCount:").append(event.getRecordCount()).append("\n")
+                        .append("======================================================").append("\n")
+
+                ;
+                L.d(sb);
                 eventText = "TYPE_WINDOW_STATE_CHANGED";
                 break;
             case AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED:
@@ -87,14 +89,7 @@ public class A extends BaseAccessibilityService {
                 break;
         }
 
-        L.i(eventText.toLowerCase(Locale.CHINA).replace("_", " ").replace("type", ""));
+        L.w(eventText.toLowerCase(Locale.CHINA).replace("_", " ").replace("type", ""));
 
-//        if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED &&
-//                event.getPackageName().equals("com.android.packageinstaller")) {
-//            AccessibilityNodeInfo nodeInfo = findViewByText("安装", true);
-//            if (nodeInfo != null) {
-//                performViewClick(nodeInfo);
-//            }
-//        }
     }
 }
