@@ -1,4 +1,4 @@
-package com.xys.accessibilitydemo;
+package com.xys.accessibilitydemo.other;
 
 import android.annotation.SuppressLint;
 import android.app.KeyguardManager;

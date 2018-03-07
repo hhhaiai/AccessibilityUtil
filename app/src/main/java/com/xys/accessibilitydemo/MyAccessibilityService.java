@@ -16,7 +16,7 @@ import java.util.Locale;
  * Created by xuyisheng on 16/12/10.
  */
 
-public class A extends BaseAccessibilityService {
+public class MyAccessibilityService extends BaseAccessibilityService {
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {

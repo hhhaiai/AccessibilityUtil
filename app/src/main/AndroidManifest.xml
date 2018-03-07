@@ -29,7 +29,7 @@
 
         <!--官方集成网站https://developer.android.com/guide/topics/ui/accessibility/services.html-->
         <service
-            android:name=".A"
+            android:name=".MyAccessibilityService"
             android:label="@string/title"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>

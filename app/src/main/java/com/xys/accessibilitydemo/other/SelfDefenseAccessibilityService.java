@@ -1,4 +1,4 @@
-package com.xys.accessibilitydemo;
+package com.xys.accessibilitydemo.other;
 
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;

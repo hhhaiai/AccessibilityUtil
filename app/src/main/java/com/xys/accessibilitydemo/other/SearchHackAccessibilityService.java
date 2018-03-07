@@ -1,4 +1,4 @@
-package com.xys.accessibilitydemo;
+package com.xys.accessibilitydemo.other;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
