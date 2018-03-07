@@ -1,10 +1,12 @@
 package com.xys.accessibilitydemo;
 
 import android.annotation.SuppressLint;
+import android.preference.PreferenceManager;
 import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
 
 import com.xys.accessibilitydemo.utils.BaseAccessibilityService;
+import com.xys.accessibilitydemo.utils.L;
+import com.xys.accessibilitydemo.utils.PowerUtil;
 
 import java.util.Locale;
 
@@ -16,12 +18,10 @@ import java.util.Locale;
 
 public class A extends BaseAccessibilityService {
 
-    @SuppressLint("NewApi")
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         super.onAccessibilityEvent(event);
-
-
+        L.e(event.toString());
 
         String eventText = null;
         switch (event.getEventType()) {
@@ -47,7 +47,6 @@ public class A extends BaseAccessibilityService {
                 sb
                         .append("======================================================").append("\n")
                         .append("action:").append(event.getAction()).append("\n")
-                        .append("ContentChangeTypes:").append(event.getContentChangeTypes()).append("\n")
                         .append("getEventTime:").append(event.getEventTime()).append("\n")
                         .append("getMovementGranularity:").append(event.getMovementGranularity()).append("\n")
                         .append("getPackageName:").append(event.getPackageName()).append("\n")
@@ -55,7 +54,6 @@ public class A extends BaseAccessibilityService {
                         .append("getSource:").append(event.getSource()).append("\n")
                         .append("getRecordCount:").append(event.getRecordCount()).append("\n")
                         .append("======================================================").append("\n")
-
                 ;
                 L.d(sb);
                 eventText = "TYPE_WINDOW_STATE_CHANGED";

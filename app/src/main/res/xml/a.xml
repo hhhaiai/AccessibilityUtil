@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--accessibilityEventTypes链接-->
+
+<!--https://developer.android.com/reference/android/R.styleable.html#AccessibilityService_accessibilityEventTypes-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeAnnouncement|typeAssistReadingContext|typeContextClicked|typeGestureDetectionEnd|typeGestureDetectionStart|typeNotificationStateChanged|typeTouchExplorationGestureEnd|typeTouchExplorationGestureStart|typeTouchInteractionEnd|typeTouchInteractionStart|typeViewAccessibilityFocusCleared|typeViewAccessibilityFocused|typeViewClicked|typeViewFocused|typeViewHoverEnter|typeViewHoverExit|typeViewLongClicked|typeViewScrolled|typeViewSelected|typeViewTextChanged|typeViewTextSelectionChanged|typeViewTextTraversedAtMovementGranularity|typeWindowContentChanged|typeWindowStateChanged|typeWindowsChanged"
+    android:accessibilityFeedbackType="feedbackSpoken"
+    android:canRetrieveWindowContent="true"
+    android:description="@string/description"
+    android:notificationTimeout="1" />

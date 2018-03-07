@@ -1,4 +1,4 @@
-package com.xys.accessibilitydemo;
+package com.xys.accessibilitydemo.utils;
 
 import android.text.TextUtils;
 import android.util.Log;

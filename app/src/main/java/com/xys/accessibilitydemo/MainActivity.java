@@ -10,6 +10,8 @@ import android.provider.Settings;
 import android.view.View;
 
 import com.xys.accessibilitydemo.utils.BaseAccessibilityService;
+import com.xys.accessibilitydemo.utils.FileUtil;
+import com.xys.accessibilitydemo.utils.T;
 
 import java.io.File;
 
@@ -24,7 +26,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         BaseAccessibilityService.getInstance().init(this);
         mPackageManager = this.getPackageManager();
-        mPackages = new String[]{"com.hujiang.studytool"};
+        mPackages = new String[]{"com.android.settings"};
     }
 
     public void goAccess(View view) {
@@ -32,7 +34,11 @@ public class MainActivity extends Activity {
     }
 
     public void goApp(View view) {
-        Intent intent = mPackageManager.getLaunchIntentForPackage("com.hujiang.hjclass");
+        Intent intent = mPackageManager.getLaunchIntentForPackage(mPackages[0]);
+        if (intent == null) {
+            T.show("打开 " + mPackages[0] + " 失败！请确认已经安装！");
+            return;
+        }
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
@@ -48,10 +54,23 @@ public class MainActivity extends Activity {
     }
 
     public void autoInstall(View view) {
-        String apkPath = Environment.getExternalStorageDirectory() + "/test.apk";
-        Uri uri = Uri.fromFile(new File(apkPath));
+
+
+        File f = new File(srcAppName);
+        if (!f.exists()) {
+            FileUtil.copyApkFromAssets(this, srcAppName, targetAppName);
+        }
+        Uri uri = Uri.fromFile(new File(targetAppName));
         Intent localIntent = new Intent(Intent.ACTION_VIEW);
+        localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         localIntent.setDataAndType(uri, "application/vnd.android.package-archive");
         startActivity(localIntent);
     }
+
+    private String targetAppName = "/sdcard/sqlites.apk";
+    private String srcAppName = "sqlites.apk";
+    private final int REQUEST_EXTERNAL_STORAGE = 1;
+    private String[] PERMISSIONS_STORAGE = {"android.permission.READ_EXTERNAL_STORAGE",
+            "android.permission.WRITE_EXTERNAL_STORAGE"};
+
 }
